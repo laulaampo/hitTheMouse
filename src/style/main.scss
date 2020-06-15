@@ -1,0 +1,296 @@
+@mixin absolute-left($top, $left){
+    position: absolute;
+    @if $top != -1 {
+        top: $top;
+    }
+    @if $left != -1 {
+        left: $left;
+    }
+}
+
+@mixin absolute-right($top, $right){
+    position: absolute;
+    @if $top != -1 {
+        top: $top;
+    }
+    @if $right != -1 {
+        right: $right;
+    }
+}
+
+@mixin absolute-bottom($bottom, $right){
+    position: absolute;
+    @if $bottom != -1 {
+        bottom: $bottom;
+    }
+    @if $right != -1 {
+        right: $right;
+    }
+}
+
+// 绝对定位 - 水平居中
+@mixin absolute-justify-center {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+// 绝对定位 - 垂直居中
+@mixin absolute-align-center {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+// 绝对定位 - 水平垂直居中
+@mixin absolute-margin-center {
+    position: absolute;
+    top: 0;left: 0;
+    bottom: 0;right: 0;
+    margin: auto;
+}
+
+// 绝对定位 - 水平垂直居中2
+@mixin absolute-translate-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+// 单行文本溢出
+@mixin text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// 行内块元素对齐
+@mixin inline-block {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+// flex - 水平垂直居中
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// flex - 水平居中
+@mixin flex-justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+// flex - 垂直居中
+@mixin flex-align-center {
+    display: flex;
+    align-items: center;
+}
+
+// 块元素
+@mixin display-block($width, $height, $lineHeight, $fontSize, $bgColor) {
+    display: block;
+    @if $width != -1 {
+        width: $width;
+    }
+    @if $height != -1 {
+        height: $height;
+    }
+    @if $lineHeight != -1 {
+        line-height: $lineHeight;
+    }
+    @if $bgColor != -1 {
+        background-color: $bgColor;
+    }
+    @if $fontSize != -1 {
+        font-size: $fontSize;
+    }
+}
+
+// 按钮
+@mixin btn($width, $height, $fontSize, $color, $bgColor, $textAlign, $borderRadius, $marginAuto) {
+    display: block;
+    @if $width != -1 {
+        width: $width;
+    }
+    @if $height != -1 {
+        height: $height;
+    }
+    @if $height != -1 {
+        line-height: $height;
+    }
+    @if $bgColor != -1 {
+        background-color: $bgColor;
+    }
+    @if $color != -1 {
+        color: $color;
+    }
+    @if $fontSize != -1 {
+        font-size: $fontSize;
+    }
+    @if $textAlign != -1 {
+        text-align: center;
+    }
+    @if $borderRadius != -1 {
+        border-radius: $borderRadius;
+    }
+    @if $marginAuto != -1 {
+        margin: auto;
+    }
+}
+
+@mixin full-bg($url) {
+    background: {
+        image: url($url);
+        size: 100% 100%;
+    };
+}
+
+@mixin size-color($size, $color){
+    font-size: $size;
+    color: $color;
+}
+
+.mask{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    transition: opacity .2s;
+}
+
+.tips-view {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 500;
+    top: 0;
+    .content{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin: auto;
+        width: 7.813333rem;
+        min-height: 4.266667rem;
+        background-color: #fff;
+        text-align: center;
+        border-radius: .266667rem;
+        box-shadow: 0 0 0.32rem #ccc;
+        z-index: 500;
+        transform: translate(-50%,-50%);
+        transition: opacity 0.3s, transform 0.4s;
+        h4{
+            font-weight: 400;
+            line-height: 1.466667rem;
+            color: #2fc3ff;
+            font-size: .48rem;
+        }
+        p{
+            font-size: .373333rem;
+            margin: 0 auto;
+            color: #333;
+            line-height: .8rem;
+            display: block;
+            width: 85%;
+            height: 41%;
+            overflow-y: scroll;
+        }
+        .btn {
+            width: 6.986667rem;
+            height: 1.066667rem;
+            background-color: #ff6800;
+            border-radius: .133333rem;
+            text-align: center;
+            line-height: 1.066667rem;
+            color: #fff;
+            margin-top: .133333rem;
+            border: 0;
+            margin-bottom: .266667rem;
+            font-size: .373333rem;
+            margin: 0 auto;
+        }
+    }
+}
+
+.bank-wrap{
+    width: 270px;
+    height: 92px;
+    color: #502B00;
+    font-size: 32px;
+    line-height: 92px;
+    text-indent: 110px;
+    background: {
+        image: url('~assets/bg-bank.png');
+        size: 100% 100%;
+    };
+}
+
+.panel-view{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    .panel{
+        width: 666px;
+        height: 676px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: {
+            image: url('~assets/bg-panel.png');
+            size: 100% 100%;
+        };
+        .title{
+            display: block;
+            width: 440px;
+            margin: auto;
+            margin-top: -130px;
+        }
+        .close{
+            width: 104px;
+            height: 104px;
+            position: absolute;
+            right: 20px;
+            top: 0;
+        }
+        .content-wrap{
+            width: calc(100% - 140px);
+            height: 420px;
+            margin: auto;
+            overflow-y: scroll;
+        }
+    }
+}
+
+.plugin-iframe{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: 500;
+}
+
+.panel-view .panel, .panel-view .mask {
+    transition: all .2s;
+}
+.panel-enter .mask, .panel-leave-to .mask {
+    opacity: 0;
+}
+.panel-enter-active, .panel-leave-active {
+    transition: all .2s;
+}
+.panel-enter .panel, .panel-leave-to .panel {
+    transform: translate(-50%,-50%) scale(.8);
+    opacity: 0;
+}
